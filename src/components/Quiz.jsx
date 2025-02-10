@@ -77,13 +77,13 @@ const fetchQuestions = async () => {
   }
   
   return (
-    <div className='quiz-container bg-gray-100 p-4 rounded-lg shadow-lg'>
-      <h1 className='text-2xl font-bold text-gray-800'>Quiz App</h1>
+    <div className='quiz-container bg-black text-gray-300 p-4 rounded-lg shadow-lg flex flex-col items-center justify-center' style={{ width: '600px' }}>
+      <h1 className='text-3xl font-bold text-gray-200'>Quiz App</h1>
       {showScore ? (
         <>
         <div className='score-section text-center'>
-          <h2 className='text-xl font-semibold text-gray-700'>You scored {score} out of {questions.length}</h2>
-          <button onClick={handlePlayAgain} className='mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+          <h2 className='text-2xl font-semibold text-gray-200'>You scored {score} out of {questions.length}</h2>
+          <button onClick={handlePlayAgain} className='mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded'>
             Play Again
           </button>
         </div>
@@ -91,14 +91,14 @@ const fetchQuestions = async () => {
       ) : (
         <> 
         <div className='question-section'>
-          <div className='question-count text-gray-600'>
+          <div className='question-count text-gray-400'>
             <span>Question {currentQuestion + 1}</span>/{questions.length}
           </div>
-          <div className='question-text text-lg text-gray-800'>{questions[currentQuestion]?.description || 'Question not available'}</div>
+          <div className='question-text text-xl text-gray-200'>{questions[currentQuestion]?.description || 'Question not available'}</div>
         </div>
-        <div className='answer-section flex flex-col'>
+        <div className='answer-section flex flex-col w-full'>
           {questions[currentQuestion]?.options.map((option) => (
-            <button key={option.id} onClick={() => handleOptionClick(option)} className='mt-2 bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded'>
+            <button key={option.id} onClick={() => handleOptionClick(option)} className='mt-2 bg-gray-700 hover:bg-gray-600 text-gray-200 py-2 px-4 rounded w-full'>
               {option.description}
             </button>
           ))}
